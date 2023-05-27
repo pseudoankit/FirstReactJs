@@ -8,14 +8,20 @@ import reportWebVitals from './reportWebVitals';
 function Demo() {
   return(
     <div className='hello'>
-       <h1>Hello World!</h1>
-       <BlockChain/>
+      <h1>Hello World!</h1>
+      <BlockChain title = "Blockchain with React is good" language = "solidity"/>
+      <BlockChain title = "Will Learn solidity" language = "solidity"/>
     </div>
   );
 }
 
-const BlockChain = () => {
-  return <h2>Blockchain with React is good</h2>
+const BlockChain = (props) => {
+  return (
+    <article>
+      <h2>{props.title}</h2>
+      <h3>Language is {props.language}</h3>
+    </article>
+  );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
