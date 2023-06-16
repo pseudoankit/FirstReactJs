@@ -3,33 +3,42 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Axios from 'axios';
-import MyCard from './component/MyCard';
+import {toast} from 'react-toastify'
+import BuyPage from './Buy';
 
 
 function App() {
 
-  const [details, setDetails] = useState({});
-  const fetchDetails = async () => {
-    const {data} = await Axios.get('https://randomuser.me/api');
-    setDetails(data.results[0])
-  };
+  const [cartItem, setCartItem] = useState({});
 
-  useEffect(
-    () => {
-      fetchDetails();
-    },
-    []
-  );
+  const addInCart = item => {
+    const isAlreadyAdded = cartItem.findIndex(function (array) {
+      return array.id === item.id;
+    })
+
+    if(isAlreadyAdded !== -1) {
+      toast("Already added in cart", {
+        type: 'error'
+      })
+    }
+    setCartItem([...cartItem, item])
+  }
+
+  const buyNow = () => {
+    setCartItem([])
+    toast("Purchase Done", {
+      type: 'success'
+    })
+  }
+
+  const reomveItem = item => {
+    setCartItem(cartItem.filter(singletItem => singletItem.id !== item.id))
+  }
 
   return (
-    <Container fluid className='p-4 bg-primary App'>
-      <Row>
-        <Col md={4} className='offset-md mt-4'>
-          <MyCard details = {details}/>
-        </Col>
-      </Row>
-    </Container>
+    <div className='App'>
+      <BuyPage/>
+    </div>
   );
 }
 

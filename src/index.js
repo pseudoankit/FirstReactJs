@@ -4,26 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-
-function Demo() {
-  return(
-    <div className='hello'>
-      <h1>Hello World!</h1>
-      <BlockChain title = "Blockchain with React is good" language = "solidity"/>
-      <BlockChain title = "Will Learn solidity" language = "solidity"/>
-    </div>
-  );
-}
-
-const BlockChain = (props) => {
-  return (
-    <article>
-      <h2>{props.title}</h2>
-      <h3>Language is {props.language}</h3>
-    </article>
-  );
-}
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <App/>
