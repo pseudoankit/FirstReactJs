@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.6;
+pragma solidity ^0.8.4;
 
 // ERC721 token standard is for non fungible tokens
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-// Uniform Resource Identifier -- is a sequence of characters
+// Uniform Resource Identifier — is a sequence of characters
 // that distinguishes one resource from another.
 // It means that the tokenURIs are also stored in "storage".
 // The base implementation in ERC721.sol reads the baseURI in
