@@ -1,10 +1,10 @@
-import "../styles/globals.css"
-import Link from "next/Link"
+import "../styles/globals.css";
+import Link from "next/link";
 
-function Marketplace({Component,pageProps}){
-  return(
+function Marketplace({ Component, pageProps }) {
+  return (
     <div className="border-b p-6 bg-gradient-to-b from-purple-600 to-blue-600">
-      <nav className="border-b p-6">
+      <nav className="border-b p-6 ">
         <p className="text-4xl font-bold flex justify-center text-cyan-200">
           NFT Digital Art Marketplace
         </p>
@@ -13,7 +13,7 @@ function Marketplace({Component,pageProps}){
             Home
           </Link>
           <Link href="/createNFT" className="mr-6 text-xl text-cyan-200">
-            Sell Your NFTs
+            Sell NFTs
           </Link>
           <Link href="/myNFTs" className="mr-6 text-xl text-cyan-200">
             My NFTs
@@ -23,8 +23,9 @@ function Marketplace({Component,pageProps}){
           </Link>
         </div>
       </nav>
-      <Component{...pageProps}/>
+      <Component {...pageProps} />
     </div>
-  )
+  );
 }
-export default Marketplace
+
+export default Marketplace;
