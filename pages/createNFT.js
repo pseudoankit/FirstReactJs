@@ -6,7 +6,7 @@ import Web3Modal from "web3modal";
 
 const { create } = require("ipfs-http-client");
 
-// TODO : to get projectId and Secret -> go to https://app.infura.io/dashboard -> Create new api key -> Choose IPFS Network -> now use the values
+// TODO ankit : to get projectId and Secret -> go to https://app.infura.io/dashboard -> Create new api key -> Choose IPFS Network -> now use the values
 const projectId = "2L5KgWKmUKk97IHJPjr6nbVCsz0";
 const projectSecret = "f8dc6d6d4d2d32f98cebf7d1af7bd50d";
 
@@ -42,6 +42,8 @@ export default function CreateItem() {
       const added = await client.add(file, {
         progress: (prog) => console.log(`received:${prog}`),
       });
+
+      // TODO ankit : enable dedicated gateway -> add name -> copy the url generated (dedicated gateway subdomain)
       const url = `https://ineuron-nft.infura-ipfs.io/ipfs/${added.path}`;
       setFileUrl(url);
     } catch (error) {
